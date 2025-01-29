@@ -48,7 +48,7 @@ jobs:
               access_token_secret=os.getenv("TWITTER_ACCESS_TOKEN_SECRET")
           )
 
-          tweet_text = f"🚀 New version of {os.getenv('GITHUB_REF_NAME')} just released! 🎉\n\n{os.getenv('GITHUB_SERVER_URL')}/{os.getenv('GITHUB_REPOSITORY')}/releases/latest"
+          tweet_text = f"🚀 New version of {os.getenv('GITHUB_REPOSITORY')} {os.getenv('GITHUB_REF_NAME')} just released! 🎉\n\n{os.getenv('GITHUB_SERVER_URL')}/{os.getenv('GITHUB_REPOSITORY')}/releases/latest"
 
           response = client.create_tweet(text=tweet_text)
           print(f"Tweet odeslán: {response}")
