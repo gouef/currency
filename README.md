@@ -90,5 +90,8 @@ Read [Contributing](CONTRIBUTING.md)
 <span>
   <a href="https://github.com/JanGalek"><img src="https://raw.githubusercontent.com/gouef/currency/refs/heads/contributors-svg/.github/contributors/JanGalek.svg" alt="JanGalek" /></a>
 </span>
+<span>
+  <a href="https://github.com/VolkerLieber"><img src="https://raw.githubusercontent.com/gouef/currency/refs/heads/contributors-svg/.github/contributors/VolkerLieber.svg" alt="VolkerLieber" /></a>
+</span>
 </div>
 
