@@ -175,8 +175,109 @@ var currencies = map[string]Currency{
 	"ZWL": {"ZWL", "Zimbabwean Dollar", "Z$", 2},
 }
 
+var uniqueSymbolCurrencies = map[string]Currency{
+	"د.ج":  {"DZD", "Algerian Dinar", "د.ج", 2},
+	"с":    {"KGS", "Kyrgyzstani Som", "с", 2},
+	"RD$":  {"DOP", "Dominican Peso", "RD$", 2},
+	"CF":   {"KMF", "Comorian Franc", "CF", 0},
+	"₺":    {"TRY", "Turkish Lira", "₺", 2},
+	"ل.ل":  {"LBP", "Lebanese Pound", "ل.ل", 2},
+	"₴":    {"UAH", "Ukrainian Hryvnia", "₴", 2},
+	"Rf":   {"MVR", "Maldivian Rufiyaa", "Rf", 2},
+	"UM":   {"MRU", "Mauritanian Ouguiya", "UM", 2},
+	"ج.س.": {"SDG", "Sudanese Pound", "ج.س.", 2},
+	"ل.د":  {"LYD", "Libyan Dinar", "ل.د", 3},
+	"CFA":  {"XOF", "West African CFA Franc", "CFA", 0},
+	"N$":   {"NAD", "Namibian Dollar", "N$", 2},
+	"L$":   {"LRD", "Liberian Dollar", "L$", 2},
+	"Rs":   {"LKR", "Sri Lankan Rupee", "Rs", 2},
+	"ع.د":  {"IQD", "Iraqi Dinar", "ع.د", 3},
+	"Fdj":  {"DJF", "Djiboutian Franc", "Fdj", 0},
+	"R$":   {"BRL", "Brazilian Real", "R$", 2},
+	"MK":   {"MWK", "Malawian Kwacha", "MK", 2},
+	"lei":  {"RON", "Romanian Leu", "lei", 2},
+	"֏":    {"AMD", "Armenian Dram", "֏", 2},
+	"₭":    {"LAK", "Lao Kip", "₭", 2},
+	"د.إ":  {"AED", "United Arab Emirates Dirham", "د.إ", 2},
+	"₲":    {"PYG", "Paraguayan Guaraní", "₲", 0},
+	"ЅМ":   {"TJS", "Tajikistani Somoni", "ЅМ", 2},
+	"zł":   {"PLN", "Polish Złoty", "zł", 2},
+	"лв":   {"BGN", "Bulgarian Lev", "лв", 2},
+	"NZ$":  {"NZD", "New Zealand Dollar", "NZ$", 2},
+	"₽":    {"RUB", "Russian Ruble", "₽", 2},
+	"฿":    {"THB", "Thai Baht", "฿", 2},
+	"VT":   {"VUV", "Vanuatu Vatu", "VT", 0},
+	"MT":   {"MZN", "Mozambican Metical", "MT", 2},
+	"Nfk":  {"ERN", "Eritrean Nakfa", "Nfk", 2},
+	"NT$":  {"TWD", "New Taiwan Dollar", "NT$", 2},
+	"Ft":   {"HUF", "Hungarian Forint", "Ft", 2},
+	"FJ$":  {"FJD", "Fijian Dollar", "FJ$", 2},
+	"BZ$":  {"BZD", "Belize Dollar", "BZ$", 2},
+	"ден":  {"MKD", "Macedonian Denar", "ден", 2},
+	"FCFA": {"XAF", "Central African CFA Franc", "FCFA", 0},
+	"KSh":  {"KES", "Kenyan Shilling", "KSh", 2},
+	"FRw":  {"RWF", "Rwandan Franc", "FRw", 0},
+	"T$":   {"TOP", "Tongan Paʻanga", "T$", 2},
+	"₪":    {"ILS", "Israeli New Shekel", "₪", 2},
+	"৳":    {"BDT", "Bangladeshi Taka", "৳", 2},
+	"₮":    {"MNT", "Mongolian Tögrög", "₮", 2},
+	"дин":  {"RSD", "Serbian Dinar", "дин", 2},
+	"CI$":  {"KYD", "Cayman Islands Dollar", "CI$", 2},
+	"S/":   {"PEN", "Peruvian Sol", "S/", 2},
+	"Kz":   {"AOA", "Angolan Kwanza", "Kz", 2},
+	"₾":    {"GEL", "Georgian Lari", "₾", 2},
+	"Q":    {"GTQ", "Guatemalan Quetzal", "Q", 2},
+	"R":    {"ZAR", "South African Rand", "R", 2},
+	"G":    {"HTG", "Haitian Gourde", "G", 2},
+	"RM":   {"MYR", "Malaysian Ringgit", "RM", 2},
+	"TT$":  {"TTD", "Trinidad and Tobago Dollar", "TT$", 2},
+	"T":    {"WST", "Samoan Tālā", "T", 2},
+	"m":    {"TMT", "Turkmenistani Manat", "m", 2},
+	"Ar":   {"MGA", "Malagasy Ariary", "Ar", 2},
+	"₦":    {"NGN", "Nigerian Naira", "₦", 2},
+	"Kč":   {"CZK", "Czech Koruna", "Kč", 2},
+	"₹":    {"INR", "Indian Rupee", "₹", 2},
+	"៛":    {"KHR", "Cambodian Riel", "៛", 2},
+	"د.ت":  {"TND", "Tunisian Dinar", "د.ت", 3},
+	"G$":   {"GYD", "Guyanese Dollar", "G$", 2},
+	"₡":    {"CRC", "Costa Rican Colón", "₡", 2},
+	"J$":   {"JMD", "Jamaican Dollar", "J$", 2},
+	"$U":   {"UYU", "Uruguayan Peso", "$U", 2},
+	"FC":   {"CDF", "Congolese Franc", "FC", 2},
+	"kn":   {"HRK", "Croatian Kuna", "kn", 2},
+	"د.م.": {"MAD", "Moroccan Dirham", "د.م.", 2},
+	"ر.س":  {"SAR", "Saudi Riyal", "ر.س", 2},
+	"Db":   {"STN", "São Tomé and Príncipe Dobra", "Db", 2},
+	"Z$":   {"ZWL", "Zimbabwean Dollar", "Z$", 2},
+	"FBu":  {"BIF", "Burundian Franc", "FBu", 0},
+	"S$":   {"SGD", "Singapore Dollar", "S$", 2},
+	"A$":   {"AUD", "Australian Dollar", "A$", 2},
+	"₫":    {"VND", "Vietnamese Đồng", "₫", 0},
+	"Fr":   {"CHF", "Swiss Franc", "Fr", 2},
+	"ر.ع.": {"OMR", "Omani Rial", "ر.ع.", 3},
+	"Bds$": {"BBD", "Barbadian Dollar", "Bds$", 2},
+	".د.ب": {"BHD", "Bahraini Dinar", ".د.ب", 3},
+	"€":    {"EUR", "Euro", "€", 2},
+	"KM":   {"BAM", "Bosnia and Herzegovina Convertible Mark", "KM", 2},
+	"د.ا":  {"JOD", "Jordanian Dinar", "د.ا", 3},
+	"Rp":   {"IDR", "Indonesian Rupiah", "Rp", 2},
+	"₸":    {"KZT", "Kazakhstani Tenge", "₸", 2},
+	"؋":    {"AFN", "Afghan Afghani", "؋", 2},
+	"₵":    {"GHS", "Ghanaian Cedi", "₵", 2},
+	"сўм":  {"UZS", "Uzbekistani So'm", "сўм", 2},
+	"د.ك":  {"KWD", "Kuwaiti Dinar", "د.ك", 3},
+	"₼":    {"AZN", "Azerbaijani Manat", "₼", 2},
+	"B/.":  {"PAB", "Panamanian Balboa", "B/.", 2},
+	"₣":    {"XPF", "CFP Franc", "₣", 0},
+	"ر.ق":  {"QAR", "Qatari Riyal", "ر.ق", 2},
+	"D":    {"GMD", "Gambian Dalasi", "D", 2},
+	"FG":   {"GNF", "Guinean Franc", "FG", 0},
+	"SI$":  {"SBD", "Solomon Islands Dollar", "SI$", 2},
+	"Nu.":  {"BTN", "Bhutanese Ngultrum", "Nu.", 2},
+	"HK$":  {"HKD", "Hong Kong Dollar", "HK$", 2},
+}
+
 // FindCurrency search of all currency codes and returns Currency struct
-// Example:
 //
 //	curr := FindCurrency("USD")
 func FindCurrency(code string) (*Currency, error) {
@@ -190,10 +291,20 @@ func FindCurrency(code string) (*Currency, error) {
 }
 
 // ValidateCurrency validate currency code
-// Example:
 //
-//	curr := ValidateCurrency("USD")
+//	valid := ValidateCurrency("USD")
 func ValidateCurrency(code string) bool {
 	_, err := FindCurrency(code)
 	return err == nil
+}
+
+// FindUniqueSymbolCurrency returns the Currency struct for the provided currency symbol, if it is unique for that currency
+//
+//	curr := FindUniqueSymbolCurrency("€")
+func FindUniqueSymbolCurrency(symbol string) (*Currency, error) {
+	if currency, exists := uniqueSymbolCurrencies[symbol]; exists {
+		return &currency, nil
+	}
+
+	return nil, fmt.Errorf("currency with unique symbol %s not found", symbol)
 }
