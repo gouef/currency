@@ -1,6 +1,7 @@
 package currency
 
 import (
+	"errors"
 	"fmt"
 	"strings"
 )
@@ -277,6 +278,16 @@ var uniqueSymbolCurrencies = map[string]Currency{
 	"HK$":  {"HKD", "Hong Kong Dollar", "HK$", 2},
 }
 
+// List return list of all currencies
+func List() map[string]Currency {
+	return currencies
+}
+
+// UniqueSymbolList return list of unique currencies symbols
+func UniqueSymbolList() map[string]Currency {
+	return uniqueSymbolCurrencies
+}
+
 // FindCurrency search of all currency codes and returns Currency struct
 //
 //	curr := FindCurrency("USD")
@@ -298,6 +309,20 @@ func ValidateCurrency(code string) bool {
 	return err == nil
 }
 
+// FindCurrenciesBySymbol return list of Currency by symbol
+//
+// currencies := FindCurrenciesBySymbol("€")
+func FindCurrenciesBySymbol(symbol string) []Currency {
+	var result []Currency
+	for _, currency := range currencies {
+		if currency.Symbol == symbol {
+			result = append(result, currency)
+		}
+	}
+
+	return result
+}
+
 // FindUniqueSymbolCurrency returns the Currency struct for the provided currency symbol, if it is unique for that currency
 //
 //	curr := FindUniqueSymbolCurrency("€")
@@ -306,5 +331,14 @@ func FindUniqueSymbolCurrency(symbol string) (*Currency, error) {
 		return &currency, nil
 	}
 
-	return nil, fmt.Errorf("currency with unique symbol %s not found", symbol)
+	return nil, errors.New(fmt.Sprintf("currency with unique symbol %s not found", symbol))
+}
+
+// HasUniqueSymbol check if Currency has unique symbol
+//
+// isUnique := currency.HasUniqueSymbol()
+func (currency *Currency) HasUniqueSymbol() bool {
+	_, err := FindUniqueSymbolCurrency(currency.Symbol)
+
+	return err == nil
 }

@@ -112,4 +112,24 @@ func TestFindUniqueSymbolCurrency(t *testing.T) {
 			}
 		})
 	}
+
+	t.Run("Test unique list is up to date", func(t *testing.T) {
+		l := 0
+
+		for _, cur := range currency.List() {
+			if len(currency.FindCurrenciesBySymbol(cur.Symbol)) == 1 {
+				l++
+			}
+		}
+
+		assert.Equal(t, len(currency.UniqueSymbolList()), l)
+	})
+
+	t.Run("Test unique currency HasUniqueSymbol", func(t *testing.T) {
+		euro, _ := currency.FindCurrency("EUR")
+		assert.True(t, euro.HasUniqueSymbol())
+
+		britishPound, _ := currency.FindCurrency("GBP")
+		assert.False(t, britishPound.HasUniqueSymbol())
+	})
 }
