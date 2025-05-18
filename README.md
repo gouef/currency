@@ -13,6 +13,11 @@ The `currency` package provides functionality to manage and validate different c
 ![GitHub Release](https://img.shields.io/github/v/release/gouef/currency?label=RC&include_prereleases&filter=*rc*&logoSize=diago)
 ![GitHub Release](https://img.shields.io/github/v/release/gouef/currency?label=Beta&include_prereleases&filter=*beta*&logoSize=diago)
 
+## Also available in other languages
+
+[![Go Implementation](https://img.shields.io/badge/Go-currency-00ADD8?logo=Go&logoColor=white)](https://github.com/gouef/currency)
+[![PHP Implementation](https://img.shields.io/badge/PHP-currency-4F5D95?logo=php&logoColor=white)](https://github.com/phpuef/currency)
+
 ## Features
 
 - Search for a currency by its code (e.g., USD, EUR).
